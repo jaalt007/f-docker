@@ -16,8 +16,8 @@ RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 
 COPY --from=composer/composer:2.1.9 /usr/bin/composer /usr/local/bin/composer
 
-COPY --from=$RR_IMAGE /usr/bin/rr /usr/local/bin/rr
-COPY --from=$RR_IMAGE /etc/rr.yaml /etc/rr.yaml
+COPY --from=$($RR_IMAGE) /usr/bin/rr /usr/local/bin/rr
+COPY --from=$($RR_IMAGE) /etc/rr.yaml /etc/rr.yaml
 
 ENV NON_ROOT_GROUP=${NON_ROOT_GROUP:-app}
 ENV NON_ROOT_USER=${NON_ROOT_USER:-app}
