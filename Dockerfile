@@ -1,5 +1,4 @@
 FROM php:8.1.0RC4-fpm-alpine
-ARG RR_IMAGE=spiralscout/roadrunner:2.5.2
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
 ARG APK_COMMON_DEPENDENCIES="bash dcron busybox-suid libcap curl zip unzip git"
@@ -16,8 +15,8 @@ RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 
 COPY --from=composer/composer:2.1.9 /usr/bin/composer /usr/local/bin/composer
 
-COPY --from=$($RR_IMAGE) /usr/bin/rr /usr/local/bin/rr
-COPY --from=$($RR_IMAGE) /etc/rr.yaml /etc/rr.yaml
+COPY --from=spiralscout/roadrunner:2.5.2 /usr/bin/rr /usr/local/bin/rr
+COPY --from=spiralscout/roadrunner:2.5.2 /etc/rr.yaml /etc/rr.yaml
 
 ENV NON_ROOT_GROUP=${NON_ROOT_GROUP:-app}
 ENV NON_ROOT_USER=${NON_ROOT_USER:-app}
