@@ -1,6 +1,6 @@
 FROM php:8.1.0RC5-fpm-alpine
 
-# RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" >> /etc/apk/repositories
 # ARG APK_COMMON_DEPENDENCIES="bash dcron busybox-suid libcap curl zip unzip git nodejs npm"
 # RUN apk add --update --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/latest-stable/main $APK_COMMON_DEPENDENCIES
 
