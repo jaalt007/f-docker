@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: jalt007/f-docker
+          images: ghcr.io/jalt007/f-docker
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
